@@ -35,7 +35,7 @@ tmp.file().then(o => {
   // If we don't need the file anymore we could manually call cleanup
   // But that is not necessary if we didn't pass the keep option because the library
   // will clean after itself.
-  cleanup();
+  o.cleanup();
 });
 ```
 
