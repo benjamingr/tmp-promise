@@ -8,16 +8,16 @@ This documentation is mostly copied from that package's - but with promise usage
 
 ## About
 
-This adds promises support to a [widely used library][2]. This package is used to create temporary files and directories in a [node.js][1] environment.
+This adds promises support to a [widely used library][2]. This package is used to create temporary files and directories in a [Node.js][1] environment.
 
-Tmp-promise offers both an asynchronous and a synchronous API. For all API calls, all
+tmp-promise offers both an asynchronous and a synchronous API. For all API calls, all
 the parameters are optional.
 
-Internally, tmp uses crypto for determining random file names, or, when using templates, a six letter random identifier. And just in case that you do not have that much entropy left on your system, Tmp will fall back to pseudo random numbers.
+Internally, tmp uses crypto for determining random file names, or, when using templates, a six letter random identifier. And just in case that you do not have that much entropy left on your system, tmp will fall back to pseudo random numbers.
 
 You can set whether you want to remove the temporary file on process exit or not, and the destination directory can also be set.
 
-Tmp-promise also uses promise disposers to provide a nice way to perform cleanup when you're done working with the files.
+tmp-promise also uses promise disposers to provide a nice way to perform cleanup when you're done working with the files.
 
 ## Usage (API Reference)
 
@@ -48,7 +48,7 @@ tmp.withFile(o => {
   // the file remains opens until the below promise resolves
   return somePromiseReturningFn();
 }).then(v => {
-	// file is closed here automatically, v is the value of somePromiseReturningFn
+  // file is closed here automatically, v is the value of somePromiseReturningFn
 });
 ```
 
@@ -105,7 +105,7 @@ tmp.withDir(o => {
   // automatic cleanup when the below promise resolves
   return somePromiseReturningFn(); 
 }).then(v => {
-	// the directory has been cleaned here
+  // the directory has been cleaned here
 });
 ```
 
@@ -134,7 +134,7 @@ directory.
 ```javascript
 var tmp = require('tmp-promise');
 
-tmp.tmpName().then(path => 
+tmp.tmpName().then(path => {
     console.log("Created temporary filename: ", path);
 });
 ```
