@@ -1,0 +1,22 @@
+{
+  "name": "tmp-promise",
+  "version": "1.0.0",
+  "description": "The tmp package with promises support and disposers.",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [
+    "tmp",
+    "promise",
+    "tempfile",
+    "mkdtemp",
+    "mktemp"
+  ],
+  "author": "Benjamin Gruenbaum",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.3.1",
+    "tmp": "0.0.28"
+  }
+}
