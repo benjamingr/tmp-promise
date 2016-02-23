@@ -84,7 +84,7 @@ If the directory still contains items on process exit, then it won't be removed.
 var tmp = require('tmp-promise');
 
 tmp.dir().then(o => {
-  console.log("Dir: ", path);
+  console.log("Dir: ", o.path);
   
   // Manual cleanup
   o.cleanup();
@@ -100,7 +100,7 @@ You can also use a disposer here which takes care of cleanup automatically:
 var tmp = require('tmp-promise');
 
 tmp.withDir(o => {
-  console.log("Dir: ", path);
+  console.log("Dir: ", o.path);
   
   // automatic cleanup when the below promise resolves
   return somePromiseReturningFn(); 
