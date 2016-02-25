@@ -6,6 +6,10 @@ The [tmp](https://github.com/raszi/node-tmp) package with promises support.
 
 This documentation is mostly copied from that package's - but with promise usage instead of callback usage adapted.
 
+## Installation
+
+    npm i tmp-promise
+
 ## About
 
 This adds promises support to a [widely used library][2]. This package is used to create temporary files and directories in a [Node.js][1] environment.
