@@ -15,6 +15,10 @@
   ],
   "author": "Benjamin Gruenbaum",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/benjamingr/tmp-promise.git"
+  },
   "dependencies": {
     "bluebird": "^3.3.1",
     "tmp": "0.0.28"
