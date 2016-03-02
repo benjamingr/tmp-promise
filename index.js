@@ -24,8 +24,8 @@ module.exports.withFile = function withFile(fn) {
 module.exports.dirSync = tmp.dirSync;
 var dir = Promise.promisify(tmp.dir, {multiArgs: true});
 module.exports.dir = function dir$promise() {
-  return dir.apply(tmp, arguments).spread(function (path, fd, cleanup) {
-    return {path: path, fd: fd, cleanup : cleanup };
+  return dir.apply(tmp, arguments).spread(function (path, cleanup) {
+    return {path: path, cleanup: cleanup};
   });
 };
 
