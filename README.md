@@ -21,7 +21,7 @@ Internally, tmp uses crypto for determining random file names, or, when using te
 
 You can set whether you want to remove the temporary file on process exit or not, and the destination directory can also be set.
 
-tmp-promise also uses promise disposers to provide a nice way to perform cleanup when you're done working with the files.
+tmp-promise also uses promise [disposers](http://stackoverflow.com/questions/28915677/what-is-the-promise-disposer-pattern) to provide a nice way to perform cleanup when you're done working with the files.
 
 ## Usage (API Reference)
 
@@ -43,7 +43,7 @@ tmp.file().then(o => {
 });
 ```
 
-Simple temporary file creation with a disposer:
+Simple temporary file creation with a [disposer](http://stackoverflow.com/questions/28915677/what-is-the-promise-disposer-pattern):
 
 ```js
 tmp.withFile(o => {
@@ -98,7 +98,7 @@ tmp.dir().then(o => {
 If you want to cleanup the directory even when there are entries in it, then
 you can pass the `unsafeCleanup` option when creating it.
 
-You can also use a disposer here which takes care of cleanup automatically: 
+You can also use a [disposer](http://stackoverflow.com/questions/28915677/what-is-the-promise-disposer-pattern) here which takes care of cleanup automatically: 
 
 ```javascript
 var tmp = require('tmp-promise');
