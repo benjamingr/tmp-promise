@@ -13,7 +13,7 @@ module.exports.file = function file$promise() {
 
 module.exports.withFile = function withFile(fn) {
   var cleanup;
-  return module.exports.file.apply(tmp, arguments).then(function context(o) { 
+  return module.exports.file.apply(tmp).then(function context(o) { 
     cleanup = o.cleanup;
     delete o.cleanup;
     return fn(o);
