@@ -15,8 +15,7 @@ module.exports.file = function file$promise() {
 module.exports.withFile = function withFile(fn) {
   var cleanup;
 
-  var params = Array.prototype.slice.call(arguments);
-  params.shift();
+  var params = Array.prototype.slice.call(arguments, 1);
 
   return module.exports.file.apply(tmp, params).then(function context(o) {
     cleanup = o.cleanup;
@@ -39,8 +38,7 @@ module.exports.dir = function dir$promise() {
 module.exports.withDir = function withDir(fn) {
   var cleanup;
 
-  var params = Array.prototype.slice.call(arguments);
-  params.shift();
+  var params = Array.prototype.slice.call(arguments, 1);
 
   return module.exports.dir.apply(tmp, params).then(function context(o) {
     cleanup = o.cleanup;
