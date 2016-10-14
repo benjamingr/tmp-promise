@@ -4,7 +4,7 @@
   "description": "The tmp package with promises support and disposers.",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "mocha"
   },
   "keywords": [
     "tmp",
@@ -22,5 +22,8 @@
   "dependencies": {
     "bluebird": "^3.3.1",
     "tmp": "0.0.28"
+  },
+  "devDependencies": {
+    "mocha": "^3.1.2"
   }
 }
