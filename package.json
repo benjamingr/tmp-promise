@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "bluebird": "^3.3.1",
-    "tmp": "0.0.28"
+    "tmp": "0.0.31"
   },
   "devDependencies": {
     "mocha": "^3.1.2"
