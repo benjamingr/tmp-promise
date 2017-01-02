@@ -21,7 +21,12 @@ module.exports.withFile = function withFile(fn) {
     cleanup = o.cleanup;
     delete o.cleanup;
     return fn(o);
-  }).finally(cleanup);
+  }).finally(function () {
+    // May not pass any arguments to cleanup() or it fails.
+    if (cleanup) {
+      cleanup();
+    }
+  });
 };
 
 
@@ -44,7 +49,12 @@ module.exports.withDir = function withDir(fn) {
     cleanup = o.cleanup;
     delete o.cleanup;
     return fn(o);
-  }).finally(cleanup);
+  }).finally(function () {
+    // May not pass any arguments to cleanup() or it fails.
+    if (cleanup) {
+      cleanup();
+    }
+  });
 };
 
 
