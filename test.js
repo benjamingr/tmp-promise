@@ -7,7 +7,7 @@ var tmp = require('.')
 
 describe('withFile', function()
 {
-  it("file don't exists after going out of scope", function()
+  it("file doesn't exist after going out of scope", function()
   {
     var filepath
 
@@ -23,7 +23,7 @@ describe('withFile', function()
       assert.throws(function()
       {
         accessSync(filepath)
-      })
+      }, filepath + ' still exists')
     })
   })
 })
@@ -31,7 +31,7 @@ describe('withFile', function()
 
 describe('withDir', function()
 {
-  it("dir don't exists after going out of scope", function()
+  it("dir doesn't exist after going out of scope", function()
   {
     var filepath
 
@@ -47,7 +47,7 @@ describe('withDir', function()
       assert.throws(function()
       {
         accessSync(filepath)
-      })
+      }, filepath + ' still exists')
     })
   })
 })
