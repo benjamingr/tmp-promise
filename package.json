@@ -1,6 +1,6 @@
 {
   "name": "tmp-promise",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "The tmp package with promises support and disposers.",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "mkdtemp",
     "mktemp"
   ],
-  "author": "Benjamin Gruenbaum",
+  "author": "Benjamin Gruenbaum and collaborators.",
   "license": "MIT",
   "repository": {
     "type": "git",
