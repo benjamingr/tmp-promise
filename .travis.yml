@@ -5,6 +5,3 @@ node_js:
   - "6"
   - "7"
   - "node"
-cache:
-  directories:
-    $HOME/.npm
