@@ -20,7 +20,8 @@
     "url": "git://github.com/benjamingr/tmp-promise.git"
   },
   "dependencies": {
-    "bluebird": "^3.3.1",
+    "es6-promisify": "^5.0.0",
+    "promise-spread": "^0.1.0",
     "tmp": "0.0.31"
   },
   "devDependencies": {
