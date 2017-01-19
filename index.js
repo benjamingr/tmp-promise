@@ -1,10 +1,16 @@
 var tmp = require("tmp");
-var Promise = require("bluebird");
+require('promise-spread');
+const promisify = require("es6-promisify");
 
+Promise.prototype.finally = function(onResolveOrReject) {
+  return this.catch(function(reason){
+    return reason;
+  }).then(onResolveOrReject);
+};
 
 // file
 module.exports.fileSync = tmp.fileSync;
-var file = Promise.promisify(tmp.file, {multiArgs: true});
+var file = promisify(tmp.file, {multiArgs: true});
 
 module.exports.file = function file$promise() {
   return file.apply(tmp, arguments).spread(function (path, fd, cleanup) {
@@ -32,7 +38,7 @@ module.exports.withFile = function withFile(fn) {
 
 // directory
 module.exports.dirSync = tmp.dirSync;
-var dir = Promise.promisify(tmp.dir, {multiArgs: true});
+var dir = promisify(tmp.dir, {multiArgs: true});
 
 module.exports.dir = function dir$promise() {
   return dir.apply(tmp, arguments).spread(function (path, cleanup) {
@@ -60,7 +66,7 @@ module.exports.withDir = function withDir(fn) {
 
 // name generation
 module.exports.tmpNameSync = tmp.tmpNameSync;
-module.exports.tmpName = Promise.promisify(tmp.tmpName);
+module.exports.tmpName = promisify(tmp.tmpName);
 
 module.exports.tmpdir = tmp.tmpdir;
 
