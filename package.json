@@ -20,8 +20,8 @@
     "url": "git://github.com/benjamingr/tmp-promise.git"
   },
   "dependencies": {
-    "bluebird": "^3.3.1",
-    "tmp": "0.0.31"
+    "bluebird": "^3.5.0",
+    "tmp": "0.0.33"
   },
   "devDependencies": {
     "mocha": "^3.1.2"
