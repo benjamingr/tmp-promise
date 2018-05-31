@@ -3,6 +3,7 @@
   "version": "1.0.4",
   "description": "The tmp package with promises support and disposers.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "mocha"
   },
@@ -24,6 +25,7 @@
     "tmp": "0.0.33"
   },
   "devDependencies": {
+    "@types/tmp": "0.0.33",
     "mocha": "^3.1.2"
   }
 }
