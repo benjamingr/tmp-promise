@@ -1,14 +1,13 @@
 import { fileSync, dirSync, tmpNameSync, setGracefulCleanup } from 'tmp';
 import { Options, SimpleOptions } from 'tmp';
 
-export interface FileResult {
-    name: string;
-    fd: number;
-    cleanup(): void;
-}
 export interface DirectoryResult {
     path: string;
     cleanup(): void;
+}
+
+export interface FileResult extends DirectoryResult {
+    fd: number;
 }
 
 export function file(options?: Options): Promise<FileResult>;
