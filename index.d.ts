@@ -11,10 +11,10 @@ export interface FileResult extends DirectoryResult {
 }
 
 export function file(options?: Options): Promise<FileResult>;
-export function withFile<T>(fn: (result: FileResult) => Promise<T>): Promise<T>;
+export function withFile<T>(fn: (result: FileResult) => Promise<T>, options?: Options): Promise<T>;
 
 export function dir(options?: Options): Promise<DirectoryResult>;
-export function withDir<T>(fn: (results: DirectoryResult) => Promise<T>): Promise<T>;
+export function withDir<T>(fn: (results: DirectoryResult) => Promise<T>, options?: Options): Promise<T>;
 
 export function tmpName(options?: SimpleOptions): Promise<string>; 
 
