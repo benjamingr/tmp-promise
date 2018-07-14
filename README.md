@@ -2,7 +2,7 @@
 
 A simple utility for creating temporary files or directories.
 
-The [tmp](https://github.com/raszi/node-tmp) package with promises support.
+The [tmp](https://github.com/raszi/node-tmp) package with promises support. If you want to use `tmp` with `async/await` then this helper might be for you.
 
 This documentation is mostly copied from that package's - but with promise usage instead of callback usage adapted.
 
@@ -29,6 +29,20 @@ tmp-promise also uses promise [disposers](http://stackoverflow.com/questions/289
 
 Simple temporary file creation, the file will be closed and unlinked on process exit.
 
+With Node.js 10 and es - modules:
+
+```js
+import { file } from 'tmp-promise'
+
+(async () => {
+  const {fd, path, cleanup} = await file();
+  // work with file here in fd
+  cleanup();
+})(); 
+```
+
+Or the older way:
+
 ```javascript
 var tmp = require('tmp-promise');
 
@@ -44,6 +58,19 @@ tmp.file().then(o => {
 ```
 
 Simple temporary file creation with a [disposer](http://stackoverflow.com/questions/28915677/what-is-the-promise-disposer-pattern):
+
+With Node.js 10 and es - modules:
+
+```js
+import { withFile } from 'tmp-promise'
+
+withFile(async ({path, fd}) => {
+  // when this function returns or throws - release the file 
+  await doSomethingWithFile(db);
+});
+```
+
+Or the older way:
 
 ```js
 tmp.withFile(o => {
