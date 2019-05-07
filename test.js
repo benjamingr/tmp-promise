@@ -1,6 +1,7 @@
 var accessSync = require('fs').accessSync
 var assert = require('assert')
 var extname = require('path').extname
+var existsSync = require('fs').existsSync
 
 var tmp = require('.')
 
@@ -17,7 +18,7 @@ describe('withFile', function()
 
       accessSync(filepath)
       assert.strictEqual(extname(filepath), '.txt')
-    }, {postfix: '.txt'})
+    }, {discardDescriptor: true, postfix: '.txt'})
     .then(function()
     {
       assert.throws(function()

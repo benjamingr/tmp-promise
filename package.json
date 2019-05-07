@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
-    "tmp": "0.0.33"
+    "tmp": "0.1.0"
   },
   "devDependencies": {
     "@types/tmp": "0.0.33",
