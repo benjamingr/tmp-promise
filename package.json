@@ -1,6 +1,6 @@
 {
   "name": "tmp-promise",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "The tmp package with promises support and disposers.",
   "main": "index.js",
   "types": "index.d.ts",
