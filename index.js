@@ -1,66 +1,47 @@
-var tmp = require("tmp");
-var Promise = require("bluebird");
-
+const {promisify} = require("util");
+const tmp = require("tmp");
 
 // file
 module.exports.fileSync = tmp.fileSync;
-var file = Promise.promisify(tmp.file, {multiArgs: true});
+module.exports.file = promisify(
+  (options, cb) => tmp.file(
+    options,
+    (err, path, fd, cleanup) => cb(err, {path, fd, cleanup})
+  )
+);
 
-module.exports.file = function file$promise() {
-  return file.apply(tmp, arguments).spread(function (path, fd, cleanup) {
-    return {path: path, fd: fd, cleanup : cleanup };
-  });
-};
-
-module.exports.withFile = function withFile(fn) {
-  var cleanup;
-
-  var params = Array.prototype.slice.call(arguments, 1);
-
-  return module.exports.file.apply(tmp, params).then(function context(o) {
-    cleanup = o.cleanup;
-    delete o.cleanup;
-    return fn(o);
-  }).finally(function () {
-    // May not pass any arguments to cleanup() or it fails.
-    if (cleanup) {
-      cleanup();
-    }
-  });
+module.exports.withFile = async function withFile(fn, options) {
+  const { path, fd, cleanup } = await module.exports.file(options);
+  try {
+    return await fn({ path, fd });
+  } finally {
+    await promisify(cleanup)();
+  }
 };
 
 
 // directory
 module.exports.dirSync = tmp.dirSync;
-var dir = Promise.promisify(tmp.dir, {multiArgs: true});
+module.exports.dir = promisify(
+  (options, cb) => tmp.dir(
+    options,
+    (err, path, cleanup) => cb(err, {path, cleanup})
+  )
+);
 
-module.exports.dir = function dir$promise() {
-  return dir.apply(tmp, arguments).spread(function (path, cleanup) {
-    return {path: path, cleanup: cleanup};
-  });
-};
-
-module.exports.withDir = function withDir(fn) {
-  var cleanup;
-
-  var params = Array.prototype.slice.call(arguments, 1);
-
-  return module.exports.dir.apply(tmp, params).then(function context(o) {
-    cleanup = o.cleanup;
-    delete o.cleanup;
-    return fn(o);
-  }).finally(function () {
-    // May not pass any arguments to cleanup() or it fails.
-    if (cleanup) {
-      cleanup();
-    }
-  });
+module.exports.withDir = async function withDir(fn, options) {
+  const { path, cleanup } = await module.exports.dir(options);
+  try {
+    return await fn({ path });
+  } finally {
+    await promisify(cleanup)();
+  }
 };
 
 
 // name generation
 module.exports.tmpNameSync = tmp.tmpNameSync;
-module.exports.tmpName = Promise.promisify(tmp.tmpName);
+module.exports.tmpName = promisify(tmp.tmpName);
 
 module.exports.tmpdir = tmp.tmpdir;
 
