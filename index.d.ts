@@ -1,21 +1,27 @@
-import { fileSync, dirSync, tmpNameSync, setGracefulCleanup } from 'tmp';
-import { Options, SimpleOptions } from 'tmp';
+import { fileSync, dirSync, tmpNameSync, setGracefulCleanup } from "tmp";
+import { FileOptions, DirOptions, TmpNameOptions } from "tmp";
 
 export interface DirectoryResult {
-    path: string;
-    cleanup(): void;
+  path: string;
+  cleanup(): void;
 }
 
 export interface FileResult extends DirectoryResult {
-    fd: number;
+  fd: number;
 }
 
-export function file(options?: Options): Promise<FileResult>;
-export function withFile<T>(fn: (result: FileResult) => Promise<T>, options?: Options): Promise<T>;
+export function file(options?: FileOptions): Promise<FileResult>;
+export function withFile<T>(
+  fn: (result: FileResult) => Promise<T>,
+  options?: FileOptions
+): Promise<T>;
 
-export function dir(options?: Options): Promise<DirectoryResult>;
-export function withDir<T>(fn: (results: DirectoryResult) => Promise<T>, options?: Options): Promise<T>;
+export function dir(options?: DirOptions): Promise<DirectoryResult>;
+export function withDir<T>(
+  fn: (results: DirectoryResult) => Promise<T>,
+  options?: DirOptions
+): Promise<T>;
 
-export function tmpName(options?: SimpleOptions): Promise<string>; 
+export function tmpName(options?: TmpNameOptions): Promise<string>;
 
-export { fileSync, dirSync, tmpNameSync, setGracefulCleanup }
+export { fileSync, dirSync, tmpNameSync, setGracefulCleanup };
