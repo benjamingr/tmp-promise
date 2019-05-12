@@ -10,9 +10,14 @@ This documentation is mostly copied from that package's - but with promise usage
 
     npm i tmp-promise
 
+**Note:** Node.js 8+ is supported - older versions of Node.js are not supported by the Node.js foundation. If you need to use an older version of Node.js install tmp-promise@1.10
+
+    npm i tmp-promise@1.1.0
+
 ## About
 
 This adds promises support to a [widely used library][2]. This package is used to create temporary files and directories in a [Node.js][1] environment.
+ 
 
 tmp-promise offers both an asynchronous and a synchronous API. For all API calls, all
 the parameters are optional.

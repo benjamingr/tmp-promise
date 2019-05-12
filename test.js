@@ -1,9 +1,8 @@
-var accessSync = require('fs').accessSync
-var assert = require('assert')
-var extname = require('path').extname
-var existsSync = require('fs').existsSync
+const accessSync = require('fs').accessSync
+const assert = require('assert')
+const extname = require('path').extname
 
-var tmp = require('.')
+const tmp = require('.')
 
 
 describe('withFile', function()
