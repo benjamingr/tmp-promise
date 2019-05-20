@@ -23,7 +23,7 @@ async function checkFileResult(result) {
   assert.equal(fs.readFileSync(path), message)
 
   // Check that the cleanup works.
-  await promisify(cleanup)()
+  await cleanup()
   assert.throws(() => fs.statSync(path))
 }
 
@@ -59,7 +59,7 @@ async function checkDirResult(result) {
 
   assert.ok(fs.statSync(path).isDirectory())
 
-  await promisify(cleanup)()
+  await cleanup()
   assert.throws(() => fs.statSync(path))
 }
 
