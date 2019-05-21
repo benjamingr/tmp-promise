@@ -1,5 +1,8 @@
 # tmp-promise
 
+[![CircleCI](https://circleci.com/gh/benjamingr/tmp-promise.svg?style=svg)](https://circleci.com/gh/benjamingr/tmp-promise)
+[![npm version](https://badge.fury.io/js/tmp-promise.svg)](https://badge.fury.io/js/tmp-promise)
+
 A simple utility for creating temporary files or directories.
 
 The [tmp](https://github.com/raszi/node-tmp) package with promises support. If you want to use `tmp` with `async/await` then this helper might be for you.
