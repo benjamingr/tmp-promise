@@ -3,10 +3,9 @@ const tmp = require("tmp");
 
 // file
 module.exports.fileSync = tmp.fileSync;
-const fileWithOptions = promisify(
-  (options, cb) => tmp.file(
-    options,
-    (err, path, fd, cleanup) => cb(err, {path, fd, cleanup: promisify(cleanup)})
+const fileWithOptions = promisify((options, cb) =>
+  tmp.file(options, (err, path, fd, cleanup) =>
+    err ? cb(err) : cb(undefined, { path, fd, cleanup: promisify(cleanup) })
   )
 );
 module.exports.file = async (options) => fileWithOptions(options);
@@ -23,10 +22,9 @@ module.exports.withFile = async function withFile(fn, options) {
 
 // directory
 module.exports.dirSync = tmp.dirSync;
-const dirWithOptions = promisify(
-  (options, cb) => tmp.dir(
-    options,
-    (err, path, cleanup) => cb(err, {path, cleanup: promisify(cleanup)})
+const dirWithOptions = promisify((options, cb) =>
+  tmp.dir(options, (err, path, cleanup) =>
+    err ? cb(err) : cb(undefined, { path, cleanup: promisify(cleanup) })
   )
 );
 module.exports.dir = async (options) => dirWithOptions(options);
