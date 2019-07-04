@@ -48,6 +48,15 @@ describe('file()', function()
       assert.ok(result.path.includes(prefix))
     })
   })
+
+  it('propagates errors', async function() {
+    try {
+      await tmp.file({ dir: 'nonexistent-path' });
+      throw Error('Expected to throw');
+    } catch (e) {
+      assert.ok(e.message.startsWith('ENOENT: no such file or directory'));
+    }
+  });
 })
 
 async function checkDirResult(result) {
@@ -84,6 +93,15 @@ describe('dir()', function()
       assert.ok(result.path.includes(prefix))
     })
   })
+
+  it('propagates errors', async function() {
+    try {
+      await tmp.dir({ dir: 'nonexistent-path' });
+      throw Error('Expected to throw');
+    } catch (e) {
+      assert.ok(e.message.startsWith('ENOENT: no such file or directory'));
+    }
+  });
 })
 
 describe('withFile()', function()
