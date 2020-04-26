@@ -23,10 +23,10 @@
     "url": "git://github.com/benjamingr/tmp-promise.git"
   },
   "dependencies": {
-    "tmp": "0.1.0"
+    "tmp": "^0.2.0"
   },
   "devDependencies": {
-    "@types/tmp": "0.1.0",
+    "@types/tmp": "^0.1.0",
     "mocha": "^6.1.4",
     "tsd": "^0.7.2"
   }
