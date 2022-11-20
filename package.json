@@ -1,6 +1,6 @@
 {
   "name": "tmp-promise",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "description": "The tmp package with promises support and disposers.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -28,10 +28,10 @@
     "url": "git://github.com/benjamingr/tmp-promise.git"
   },
   "dependencies": {
+    "@types/tmp": "^0.2.0",
     "tmp": "^0.2.0"
   },
   "devDependencies": {
-    "@types/tmp": "^0.2.0",
     "mocha": "7.1.2",
     "tsd": "0.11.0"
   }
