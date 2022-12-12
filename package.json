@@ -33,6 +33,6 @@
   "devDependencies": {
     "@types/tmp": "^0.2.0",
     "mocha": "7.1.2",
-    "tsd": "0.11.0"
+    "tsd": "0.25.0"
   }
 }
