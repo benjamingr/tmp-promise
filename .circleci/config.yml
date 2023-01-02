@@ -20,25 +20,26 @@ common_steps: &common_steps
 jobs:
   node-14:
     docker:
-      - image: cimg/node:14
+      - image: cimg/node:14.21.1
+
 
     <<: *common_steps
 
   node-16:
     docker:
-      - image: cimg/node:16
+      - image: cimg/node:16.19.0
 
     <<: *common_steps
 
   node-18:
     docker:
-      - image: cimg/node:18
+      - image: cimg/node:18.12.1
 
     <<: *common_steps
 
   node-19:
     docker:
-      - image: cimg/node:19
+      - image: cimg/node:19.3.0
 
     <<: *common_steps
 
