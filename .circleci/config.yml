@@ -20,25 +20,25 @@ common_steps: &common_steps
 jobs:
   node-14:
     docker:
-      - image: circleci/node:14
+      - image: cimg/node:14
 
     <<: *common_steps
 
   node-16:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:16
 
     <<: *common_steps
 
   node-18:
     docker:
-      - image: circleci/node:18
+      - image: cimg/node:18
 
     <<: *common_steps
 
   node-19:
     docker:
-      - image: circleci/node:19
+      - image: cimg/node:19
 
     <<: *common_steps
 
