@@ -18,27 +18,27 @@ common_steps: &common_steps
           when: always
 
 jobs:
-  node-8:
+  node-14:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:14
 
     <<: *common_steps
 
-  node-10:
+  node-16:
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:16
 
     <<: *common_steps
 
-  node-11:
+  node-18:
     docker:
-      - image: circleci/node:11
+      - image: circleci/node:18
 
     <<: *common_steps
 
-  node-12:
+  node-19:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:19
 
     <<: *common_steps
 
